@@ -1,0 +1,20 @@
+td {
+	width: 40px;
+	min-width: 40px;
+	height: 40px;
+	min-height: 40px;
+	border: solid 1px #333;
+	text-align:center;
+}
+
+
+input {
+	max-width: 100%;
+	text-align: center;
+}
+
+
+.main-div {
+	width: 40px;
+	display: block;
+}

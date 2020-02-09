@@ -4,8 +4,30 @@
         <link rel="stylesheet" href="css/index.css" />
         <script src="lib/angular.min.js"></script>
     </head>
-    <body ng-controller="StoriesController">
-		Nothing to do yet
+    <body ng-controller="IndexController">
+		<div id="grid">
+            <table>
+            <tr>
+                <td></td>
+                <td ng-repeat="column in columns" valign="middle"><strong>{{ column.value }}</strong></td>
+            </tr>
+                <tr ng-repeat="row in rows">
+                    <td><strong>{{ row.value }}</strong></td>
+                    <td ng-repeat="column in columns" valign="middle">
+
+                        <div class="main-div" ng-switch on="shouldShow()">
+                            <div ng-if="models['result-'+row.value+'-'+column.value].shouldShow">
+                                {{ row.value * column.value }}
+                            </div>
+                            <div ng-if="!models['result-'+row.value+'-'+column.value].shouldShow">
+                                <input ng-style="{color: models['result-'+row.value+'-'+column.value].value == row.value * column.value ? 'green' : 'red'}" ng-model-options="{updateOn: 'default blur', debounce: {default: 500, blur: 0} }"  type="text" value="?" ng-model="models['result-'+row.value+'-'+column.value].value" ng-change="checkResult(row.value, column.value)" id="answer-{{ row.value }}-{{ column.value }}" />
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+        </div>
         <script src="js/app.angular.js"></script>
     </body>
 </html>
