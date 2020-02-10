@@ -20,7 +20,7 @@ serve-html: ## Serve the html ui using nginx
 	docker run  --rm -v $$(pwd)/www:/usr/share/nginx/html:ro -p 8088:80 nginx:latest
 
 package: ## Build a distruable binary
-	$(ELECTRON) ./node_modules/.bin/electron-builder
+	#$(ELECTRON) ./node_modules/.bin/electron-builder
 	$(DOCKER) project ./node_modules/.bin/cordova build
 	$(DOCKER) project mv platforms/android/app/build/outputs/apk/debug/app-debug.apk dist/android.apk
 
