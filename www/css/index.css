@@ -1,20 +1,40 @@
+table {
+	width: 99%;
+	margin:auto;
+	margin-top: 20px;
+}
 td {
-	width: 40px;
-	min-width: 40px;
-	height: 40px;
-	min-height: 40px;
+	width: 10%;
+	min-width: 10%;
+	max-width: 10%;
+	height: 50px;
+	min-height: 50px;
 	border: solid 1px #333;
 	text-align:center;
+	height: 50px;
 }
 
 
 input {
-	max-width: 100%;
+	min-width: 10%;
 	text-align: center;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	height: 50px;
 }
 
-
 .main-div {
-	width: 40px;
+	width: 100%;
 	display: block;
+}
+
+.highlight {
+	background-color: green;
+	color: #fff;
+}
+
+input::placeholder {
+	color: red;
+	font-weight: bold;
 }

@@ -15,12 +15,13 @@ angularApp.controller('IndexController', function StoriesController($scope, $htt
     $scope.shouldShow = function() {
         return Math.floor((Math.random() * 100) + 1) > 10;
     }
+    
     numbers.forEach(function(number){
-        rows.push({"value": number});
-        columns.push({"value": number});
+        rows.push({value: number, highlight: false});
+        columns.push({value: number, highlight: false});
         numbers.forEach(function(otherNumber){
             var shouldShow = $scope.shouldShow()
-            models['result-'+number+'-'+otherNumber] = {shouldShow: shouldShow, value: shouldShow ? number * otherNumber : '?'}
+            models['result-'+number+'-'+otherNumber] = {shouldShow: shouldShow, value: shouldShow ? number * otherNumber : ''}
         });
     });
 
@@ -35,4 +36,16 @@ angularApp.controller('IndexController', function StoriesController($scope, $htt
         console.log(model+'='+row+'*'+column)
         console.log(model == row * column)
     }
+
+    $scope.highligthValues = function(column, row) {
+        for(i=0;i<$scope.rows.length;++i){
+            $scope.rows[i].highlight = ($scope.rows[i].value == row.value);
+        }
+        for(i=0;i<$scope.columns.length;++i){
+            $scope.columns[i].highlight = ($scope.columns[i].value == column.value);
+        }
+    }
+
+    $scope.$watch($scope.rows)
+    $scope.$watch($scope.columns)
 });
