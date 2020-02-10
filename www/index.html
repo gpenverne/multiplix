@@ -10,10 +10,10 @@
             <table>
             <tr>
                 <td></td>
-                <td ng-class="{highlight: column.highlight}" ng-repeat="column in columns" valign="middle"><strong>{{ column.value }}</strong></td>
+                <td style="background-color: #00b6e3" ng-class="{highlight: column.highlight}" ng-repeat="column in columns" valign="middle"><strong>{{ column.value }}</strong></td>
             </tr>
                 <tr ng-repeat="row in rows">
-                    <td ng-class="{highlight: row.highlight}"><strong>{{ row.value }}</strong></td>
+                    <td  style="background-color: #00b6e3" ng-class="{highlight: row.highlight}"><strong>{{ row.value }}</strong></td>
                     <td ng-repeat="column in columns" valign="middle">
                         <div class="main-div">
                             <div ng-if="models['result-'+row.value+'-'+column.value].shouldShow">

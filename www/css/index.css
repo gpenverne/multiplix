@@ -30,7 +30,7 @@ input {
 }
 
 .highlight {
-	background-color: green;
+	background-color: green !important;
 	color: #fff;
 }
 
